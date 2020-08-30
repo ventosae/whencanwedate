@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.scss"],"names":[],"mappings":"AAAA,KACI,wBAAkC,CAClC,wBAAiB,CAAjB,gBAAiB","file":"style.css","sourcesContent":["html {\r\n    background-color: mediumaquamarine;\r\n    font-kerning: 123;\r\n}"]}
