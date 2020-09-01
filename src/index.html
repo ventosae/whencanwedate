@@ -3,12 +3,15 @@
 
 <head>
   <meta charset="utf-8">
+  <title>When Can we date?!</title>
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
   <link rel="stylesheet" href="/style.css">
   <script src="/scripts.js" async defer></script>
+  <script src="/yscountdown.js"></script>
   <script>
 
   </script>
@@ -17,13 +20,54 @@
 
 <body>
   <main class="page-main">
-    <section class="info">
-        <h1>when</h1>
+    <section class="header">
+        <h2 class="header_h1">When can we date, Melbourne?<br>😫</h1>
+    </section>
+    <section class="timer">
+      <p class="timer_comment">well, we can date in:</p>
+      <!-- <div class="container">
+        <h1 class="timer_main" id="seconds"></h1>
+      </div> -->
+
+      <div class="container timer_main">
+        <ul>
+          <li><span class=""id="days">478</span>days</li>
+          <li><span id="hours">23</span>Hours</li>
+          <li><span id="minutes">23</span>Minutes</li>
+          <li><span id="seconds">18</span>Seconds</li>
+        </ul>
+      </div>
+      
+    </section>
+    <section class="spotify">
+      <h3 class="spotify-header">So what can I do now?! </h1>
+      <iframe src="https://open.spotify.com/embed/playlist/0RRzozSRGXUD8tyJMEEZL8" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </section>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   </main>
 
 </body>
+<script>
+var daysElement = document.querySelector("#days");
+    var hoursElement = document.querySelector("#hours");
+    var minutesElement = document.querySelector("#minutes");
+    var secondsElement = document.querySelector("#seconds");
+    var containerElement = document.querySelector(".counter");
+    var endDate = (new Date().getFullYear() + 1) + "/01/01";
 
+    var myCountDown = new ysCountDown(endDate, function (remaining, finished) {
+
+      if (finished) {
+        containerElement.textContent = "Expired";
+      }
+
+      daysElement.textContent = remaining.totalDays;
+      hoursElement.textContent = remaining.hours;
+      minutesElement.textContent = remaining.minutes;
+      secondsElement.textContent = remaining.seconds;
+
+    });
+
+</script>
 </html>
