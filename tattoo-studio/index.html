@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tattoo Studio</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <main id="stage">
+        <div id="viewport"></div>
+
+        <div class="stage-top">
+          <div class="seg" role="group" aria-label="Camera view">
+            <button data-view="front">Front</button>
+            <button data-view="left">Left</button>
+            <button data-view="back">Back</button>
+            <button data-view="right">Right</button>
+          </div>
+          <div class="stage-actions">
+            <button id="compare" class="toggle" aria-pressed="false" title="Hide your tattoo ideas to compare with how you look now">Hide ideas</button>
+            <button id="snapshot" class="primary">Save picture</button>
+          </div>
+        </div>
+
+        <p id="hint" class="hint"></p>
+        <div id="busy" class="busy" hidden><span class="spinner"></span><span id="busy-text">Working…</span></div>
+        <div id="dropzone" class="dropzone" hidden>Drop to add as a tattoo idea</div>
+      </main>
+
+      <aside id="panel">
+        <header>
+          <h1>Tattoo Studio</h1>
+          <p>Build your torso, put your ink on it, try new pieces.</p>
+        </header>
+
+        <section>
+          <h2><span class="step">1</span> Your body</h2>
+          <label class="upload">
+            <input type="file" id="body-file" accept="image/*" />
+            <strong>Upload a torso photo</strong>
+            <span>Front-facing, shoulders to hips, arms a little away from your sides.</span>
+          </label>
+          <ul id="fit-notes" class="notes" hidden></ul>
+          <label class="check" id="wrap-row" hidden>
+            <input type="checkbox" id="wrap" />
+            <span>Wrap my photo onto the front of the model</span>
+          </label>
+
+          <div class="chips" id="presets"></div>
+          <div id="body-sliders" class="sliders"></div>
+          <div class="row">
+            <label for="skin">Skin tone</label>
+            <div class="swatches" id="swatches"></div>
+            <input type="color" id="skin" aria-label="Custom skin tone" />
+          </div>
+        </section>
+
+        <section>
+          <h2><span class="step">2</span> Tattoos</h2>
+          <div class="two">
+            <label class="upload small">
+              <input type="file" id="mine-file" accept="image/*" multiple />
+              <strong>Tattoos I have</strong>
+              <span>Photos of your ink</span>
+            </label>
+            <label class="upload small accent">
+              <input type="file" id="idea-file" accept="image/*" multiple />
+              <strong>Tattoo ideas</strong>
+              <span>Designs to try on</span>
+            </label>
+          </div>
+          <div class="samples">
+            <span>Or try a sample:</span>
+            <div id="samples" class="chips"></div>
+          </div>
+          <ul id="layers" class="layers"></ul>
+          <p id="layers-empty" class="empty">No tattoos yet. Add a photo or a sample, then drag it around the body.</p>
+        </section>
+
+        <section id="inspector" hidden>
+          <h2><span class="step">3</span> Adjust <em id="insp-name"></em></h2>
+          <div class="sliders" id="layer-sliders"></div>
+          <label class="check"><input type="checkbox" id="l-cutout" /><span>Remove background (skin or paper)</span></label>
+          <div class="sliders" id="cutout-sliders"></div>
+          <label class="check"><input type="checkbox" id="l-ink" /><span>Black ink only</span></label>
+          <label class="check"><input type="checkbox" id="l-flip" /><span>Mirror</span></label>
+          <div class="row buttons">
+            <button id="l-group"></button>
+            <button id="l-dup">Duplicate</button>
+            <button id="l-del" class="danger">Delete</button>
+          </div>
+        </section>
+
+        <footer>
+          <p>Your photos never leave this browser. The torso is a fitted 3D mannequin, not a scan.</p>
+          <button id="reset" class="link">Start over</button>
+        </footer>
+      </aside>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
